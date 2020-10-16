@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('Periodic Table of Elements.csv')
+df = pd.read_csv('table.csv')
 
 df.head(100)
 
@@ -26,15 +26,15 @@ for k, v in pair1:
 
 
 def input1():
-    ''' Basic input function to retrieve atomic number of element which takes its symbol
-as input.'''
+    ''' Basic input function to retrieve atomic number of element which
+takes its symbol as input.'''
 
     print('''\nWelcome to the basic element dictionary. ENTER the name of the
 element by its CASE SENSITIVE SYMBOL abbreviation. \n ''')
 
     while True:
         try:
-            key = str(input('Enter symbol of element to retrieve atomic number: '))
+            key = str(input('Enter symbol of element to retrieve its atomic number: '))
             print("\nThe symbol you entered was:'{}' ".format(key))
             print("The atomic number is: {}".format(dict1[key]))
         except:
