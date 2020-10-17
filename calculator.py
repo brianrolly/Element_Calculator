@@ -16,29 +16,34 @@ symbols = [v for v in _dict['Symbol'].values()]
 # getting list of atomic numbers
 atomic_num = [v for v in _dict['AtomicNumber'].values()]
 
+# getting list of element names
+el_name = [v for v in _dict['Element'].values()]
+
 # create pairs of symbols and atomic numbers
-pair1 = zip(symbols, atomic_num)
+pair = zip(symbols, el_name, atomic_num)
 
 # making new dictionary
 dict1 = {}
-for k, v in pair1:
-    dict1[k] = v
+for key, name, num in pair:
+    dict1[key] = name, num
 
 
 def input1():
     ''' Basic input function to retrieve atomic number of element which
 takes its symbol as input.'''
 
-    print('''\nWelcome to the basic element dictionary. ENTER the name of the
-element by its CASE SENSITIVE SYMBOL abbreviation. \n ''')
+    print("\nWelcome to the basic element dictionary. ENTER the name of")
+    print("the element by its CASE SENSITIVE SYMBOL abbreviation to")
+    print("retrieve its atomic number.\n")
 
     while True:
         try:
-            key = str(input('Enter symbol of element to retrieve its atomic number: '))
+            key = str(input('Enter symbol of element: '))
             print("\nThe symbol you entered was:'{}' ".format(key))
-            print("The atomic number is: {}".format(dict1[key]))
-        except:
-            pass
+            print("\nThe element for that symbol is:'{}'".format(dict1[key][0]))
+            print("The atomic number is: {}".format(dict1[key][1]))
+        except ValueError:
+            continue
 
 
 input1()
