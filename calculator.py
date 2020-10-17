@@ -2,7 +2,7 @@ import pandas as pd
 
 df = pd.read_csv('table.csv')
 
-df.head(100)
+df.head(20)
 
 # creating a dictionary from CSV file
 _dict = df.to_dict()
@@ -28,6 +28,17 @@ for key, name, num in pair:
     dict1[key] = name, num
 
 
+def menu():
+    while True:
+        print("\nWould you like to enter another symbol?")
+        answer = str(input("y/n ")).lower()
+        if 'y' in answer:
+            print('\n')
+            return True
+        elif 'n' in answer:
+            exit(0)
+
+
 def input1():
     ''' Basic input function to retrieve atomic number of element which
 takes its symbol as input.'''
@@ -37,16 +48,18 @@ takes its symbol as input.'''
     print("retrieve its atomic number.\n")
 
     while True:
-        try:
+        try:  # the key will be indexed into the dictionary
             key = str(input('Enter symbol of element: '))
+            # if key
             print("\nThe symbol you entered was:'{}' ".format(key))
-            print("\nThe element for that symbol is:'{}'".format(dict1[key][0]))
-            print("The atomic number is: {}".format(dict1[key][1]))
-        except ValueError:
+            print("\nThe element of that symbol is:'{}'".format(dict1[key][0]))
+            print("The atomic number is: {}\n".format(dict1[key][1]))
+            if menu():
+                continue
+        except KeyError:
+            print('Please enter a valid symbol from the periodic table with')
+            print('proper capitalization.\n')
             continue
 
 
 input1()
-# print(dict1)
-#
-# exit(0)
