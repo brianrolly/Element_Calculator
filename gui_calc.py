@@ -45,11 +45,10 @@ def restart_button():
     canvas1.create_window(350, 200, window=button2)  # 100, 190
 
 
-def get_key():
-    key = entry1.get()
-    message1 = 'The symbol you entered was: {}'.format(key)
-    label1 = tk.Label(root, text=message1)
-    canvas1.create_window(350, 235, window=label1)
+def retrieve(key):
+    ''' Takes the input and uses it as a dictionary to access the desired
+    values and outputs them. '''
+
     try:
         canvas1.create_text(
             350, 255, text="The element of that symbol is: {}".format(dict1[key][0]))
@@ -58,10 +57,25 @@ def get_key():
         canvas1.create_text(350, 255, text="No known element with this symbol!")
     # create new button here
     restart_button()
-# "The atomic number is: {}\n".format(dict1[key][1])
+
+
+def get_key():
+    ''' Receives the input and stores it in the "key" variable and then passes
+    that variable to the retrieve() function call to get the element name and
+    its atomic number from the dict1 dictionary '''
+
+    key = entry1.get()
+    message1 = 'The symbol you entered was: {}'.format(key)
+    label1 = tk.Label(root, text=message1)
+    canvas1.create_window(350, 235, window=label1)
+    retrieve(key)
+
+# TKINTER GUI CREATION STARTS HERE #
 
 
 def start():
+    ''' Initiates the program and creates the GUI and runs until line 96 calls
+    the get_key() function and then continues in a chain of functions. '''
 
     # establish root
     global root
@@ -91,5 +105,5 @@ def start():
     root.mainloop()
 
 
-# Program GUI runs from here
+# PROGRAM GUI RUNS FROM HERE #
 start()
