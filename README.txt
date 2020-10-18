@@ -1,5 +1,5 @@
 Mohamadinho! Put your comments in here!
 
-https://github.com/brianrolly/Element_Calculator.git
+Make sure to just run the gui_calc.py file only.
 
-Pull me!
+https://github.com/brianrolly/Element_Calculator.git
