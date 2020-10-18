@@ -1,7 +1,9 @@
 import pandas as pd
 
+# to open csv file with pandas
 df = pd.read_csv('table.csv')
 
+# to check format of table.csv
 df.head(20)
 
 # creating a dictionary from CSV file
@@ -26,6 +28,8 @@ pair = zip(symbols, el_name, atomic_num)
 dict1 = {}
 for key, name, num in pair:
     dict1[key] = name, num
+
+# A basic menu to give the user an option to quit or keep looping
 
 
 def menu():
