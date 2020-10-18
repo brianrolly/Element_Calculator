@@ -8,9 +8,6 @@ import pandas as pd
 # to open csv file with pandas
 df = pd.read_csv('table.csv')
 
-# to check format of table.csv
-df.head(20)
-
 # creating a dictionary from CSV file
 _dict = df.to_dict()
 
