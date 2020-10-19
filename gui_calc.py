@@ -5,10 +5,10 @@ import pandas as pd
 import sys
 import os
 
-try:  # running using executable
+try:  # runs using executable
     path = sys._MEIPASS
 
-except AttributeError:  # running using .py sript
+except AttributeError:  # runs using .py sript
     path = os.path.abspath('.')
 
 csv_path = os.path.join(path, 'table.csv')  # valid path of the csv file
@@ -30,12 +30,12 @@ atomic_num = [v for v in _dict['AtomicNumber'].values()]
 # getting list of element names
 el_name = [v for v in _dict['Element'].values()]
 
-# create sets of symbols and atomic numbers
-set = zip(symbols, el_name, atomic_num)
+# create groups of symbols and atomic numbers
+group = zip(symbols, el_name, atomic_num)
 
 # making new dictionary
 dict1 = {}
-for key, name, num in set:
+for key, name, num in group:
     dict1[key] = name, num
 
 # GUI BELOW #
@@ -114,7 +114,7 @@ def start():
     button1 = tk.Button(text='ENTER', command=get_key)
     canvas1.create_window(350, 200, window=button1)
 
-    # keep the gui window up
+    # keeps the gui window up
     root.mainloop()
 
 
