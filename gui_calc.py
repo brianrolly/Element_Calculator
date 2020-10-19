@@ -2,6 +2,16 @@
 
 import tkinter as tk
 import pandas as pd
+import sys
+import os
+
+try:  # running using executable
+    path = sys._MEIPASS
+
+except AttributeError:  # running using .py sript
+    path = os.path.abspath('.')
+
+csv_path = os.path.join(path, 'table.csv')  # valid path of the csv file
 
 # CSV HANDLING BELOW #
 
@@ -55,6 +65,7 @@ def retrieve(key):
         canvas1.create_text(350, 275, text="The atomic number is: {}".format(dict1[key][1]))
     except KeyError:
         canvas1.create_text(350, 255, text="No known element with this symbol!")
+        canvas1.create_text(350, 275, text="Don't forget to capitalize the first letter!")
     # create new button here
     restart_button()
 
@@ -80,6 +91,7 @@ def start():
     # establish root
     global root
     root = tk.Tk()
+    root.title('Element Calculator')
 
     # make canvas
     global canvas1
@@ -89,6 +101,7 @@ def start():
     canvas1.create_text(
         350, 100, text="of the element by its CASE SENSITIVE SYMBOL")
     canvas1.create_text(350, 120, text="abbreviation to retrieve its atomic number.")
+    canvas1.create_text(230, 170, text="Symbol:")
     canvas1.pack()
 
     # creating entry point for input
